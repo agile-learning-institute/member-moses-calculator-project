@@ -87,16 +87,16 @@ button:active {
   background-color: #68b31a;
 }
 
-.operation,
-.result {
+.operation-display,
+.result-display {
   padding-right: 10px;
 }
 
-.result {
+.result-display {
   color: green;
   font-size: 45px;
 }
 
-.operation {
+.operation-display {
   color: #555555;
 }
