@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #243b5b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  color: whitesmoke;
+  font-size: 60px;
+  margin: 10px;
+}
+
+.frame {
+  width: 400px;
+  height: 600px;
+  background-color: #fcfcfc;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.display {
+  width: 90%;
+  height: auto;
+  background-color: #e5e7eb;
+  font-size: 50px;
+  text-align: right;
+  border-radius: 10px;
+  border: 1px solid #cecece;
+}
+
+.button-cont {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+button {
+  width: 75px;
+  height: 75px;
+  margin: 5px;
+  color: #555555;
+  background-color: #f3f2f2;
+  font-size: 40px;
+  border-radius: 50%;
+}
+
+button:active {
+  background-color: #dcdee2;
+  transform: scale(1.1);
+  font-size: 30px;
+}
+
+.equals:active {
+  background-color: #4d8610;
+}
+
+.divide-by,
+.times,
+.minus,
+.plus,
+.percent,
+.open-bracket,
+.close-bracket {
+  color: #68b31a;
+}
+
+.clear {
+  color: #db332a;
+  font-weight: bolder;
+}
+
+.equals {
+  color: whitesmoke;
+  background-color: #68b31a;
+}
+
+.operation,
+.result {
+  padding-right: 10px;
+}
+
+.result {
+  color: green;
+  font-size: 45px;
+}
+
+.operation {
+  color: #555555;
+}
