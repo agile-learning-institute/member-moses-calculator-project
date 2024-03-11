@@ -119,6 +119,7 @@ clearButton.addEventListener("click", () => {
   resultDisplay.textContent = "";
 });
 
+// Equals event handler
 equalsButton.addEventListener("click", () => {
   if (operand1 !== "" && operand2 !== "") {
     result = operate(parseFloat(operand1), operator, parseFloat(operand2));
@@ -149,17 +150,40 @@ equalsButton.addEventListener("click", () => {
   operationDisplay.textContent = "";
 });
 
+// Delete button event handler
 deleteButton.addEventListener("click", () => {
-    if (operand2 !== "") {
-        operand2 = operand2.slice(0, -1);
-        operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
-    } else if (operator !== "") {
-        operator = "";
-        operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
-    } else if (operand1 !== "") {
-        operand1 = operand1.slice(0, -1);
-        operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
-    } else {
-        operationDisplay.textContent = "";
-    }
+  if (operand2 !== "") {
+    operand2 = operand2.slice(0, -1);
+    operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+  } else if (operator !== "") {
+    operator = "";
+    operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+  } else if (operand1 !== "") {
+    operand1 = operand1.slice(0, -1);
+    operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+  } else {
+    operationDisplay.textContent = "";
+  }
 });
+
+// ### Chei!! Key Board Support is here, but.....let me say no more ###
+// Some keys still don't respond like the operator keys,
+// probably due to keyboard layout differences
+
+document.addEventListener("keydown", ({ key }) => {
+  const btn = (key) => document.querySelector(`.btn-${key}`);
+  const triggerClick = (element) => element && element.click();
+
+  if (!isNaN(key) || key === ".") triggerClick(btn(key));
+  else if (["+", "-", "*", "/", "%"].includes(key)) triggerClick(btn(key));
+  else if (key === "Enter") triggerClick(btn("equals"));
+  else if (key === "Escape") triggerClick(btn("clear"));
+  else if (key === "Backspace") triggerClick(btn("delete"));
+});
+
+numberButtons.forEach((button) =>
+  button.classList.add(`btn-${button.textContent}`)
+);
+operatorButtons.forEach((button) =>
+  button.classList.add(`btn-${button.textContent}`)
+);
