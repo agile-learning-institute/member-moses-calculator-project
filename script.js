@@ -76,24 +76,36 @@ function addOperatorToDisplay(e) {
     operand2 = "";
     operationDisplay.textContent = operand1;
   }
+
+  const lastChar = operationDisplay.textContent.trim().slice(-1);
+  if (
+    lastChar === "+" ||
+    lastChar === "-" ||
+    lastChar === "x" ||
+    lastChar === "÷" ||
+    lastChar === "%"
+  ) {
+    // If last character is an operator, replace it with the new one
+    operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+  }
   operator = e.target.textContent;
   operationDisplay.textContent += operator;
 }
 
 // Add point(.) button with check so that its not more than one in each operand
 decimalButton.addEventListener("click", () => {
-    if (operator === "") {
-      if (!operand1.includes(".")) {
-        operand1 += ".";
-        operationDisplay.textContent += ".";
-      }
-    } else {
-      if (!operand2.includes(".")) {
-        operand2 += ".";
-        operationDisplay.textContent += ".";
-      }
+  if (operator === "") {
+    if (!operand1.includes(".")) {
+      operand1 += ".";
+      operationDisplay.textContent += ".";
     }
-  });
+  } else {
+    if (!operand2.includes(".")) {
+      operand2 += ".";
+      operationDisplay.textContent += ".";
+    }
+  }
+});
 
 // console.log(operand1 + ' ' + operator);
 
@@ -107,12 +119,12 @@ clearButton.addEventListener("click", () => {
 });
 
 equalsButton.addEventListener("click", () => {
-    if (operand1 !== "" && operand2 !== "") {
-      result = operate(parseFloat(operand1), operator, parseFloat(operand2));
-      resultDisplay.textContent = result;
-      operand1 = "";
-      operand2 = "";
-      operator = "";
-      operationDisplay.textContent = "";
-    }
-  });
+  if (operand1 !== "" && operand2 !== "") {
+    result = operate(parseFloat(operand1), operator, parseFloat(operand2));
+    resultDisplay.textContent = result;
+    operand1 = "";
+    operand2 = "";
+    operator = "";
+    operationDisplay.textContent = "";
+  }
+});
