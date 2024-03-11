@@ -110,7 +110,7 @@ equalsButton.addEventListener("click", () => {
     if (operand1 !== "" && operand2 !== "") {
       result = operate(parseFloat(operand1), operator, parseFloat(operand2));
       resultDisplay.textContent = result;
-      operand1 = result;
+      operand1 = "";
       operand2 = "";
       operator = "";
       operationDisplay.textContent = "";
