@@ -73,10 +73,18 @@ function addOperatorToDisplay(e) {
   }
   operator = e.target.textContent;
   operationDisplay.textContent += operator;
-  console.log(operand1 + " " + operator);
 }
 
 // Updates Results Display
 // function updateResultDisplay() {}
 
 // console.log(operand1 + ' ' + operator);
+
+clearButton.addEventListener("click", () => {
+    operand1 = "";
+    operand2 = "";
+    operator = "";
+    result = "";
+    operationDisplay.textContent = "";
+    resultDisplay.textContent = "";
+  });
