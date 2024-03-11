@@ -80,8 +80,20 @@ function addOperatorToDisplay(e) {
   operationDisplay.textContent += operator;
 }
 
-// Updates Results Display
-// function updateResultDisplay() {}
+// Add point(.) button with check so that its not more than one in each operand
+decimalButton.addEventListener("click", () => {
+    if (operator === "") {
+      if (!operand1.includes(".")) {
+        operand1 += ".";
+        operationDisplay.textContent += ".";
+      }
+    } else {
+      if (!operand2.includes(".")) {
+        operand2 += ".";
+        operationDisplay.textContent += ".";
+      }
+    }
+  });
 
 // console.log(operand1 + ' ' + operator);
 
