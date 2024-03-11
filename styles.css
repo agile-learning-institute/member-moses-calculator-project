@@ -31,12 +31,20 @@ body {
 
 .display {
   width: 90%;
-  height: auto;
+  height: 20%;
   background-color: #e5e7eb;
   font-size: 50px;
   text-align: right;
   border-radius: 10px;
   border: 1px solid #cecece;
+}
+
+.operation-display {
+    height: 50%;
+}
+
+.result-display {
+    height: 50%;
 }
 
 .button-cont {
