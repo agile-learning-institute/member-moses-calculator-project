@@ -20,9 +20,10 @@ function percentage(a) {
 }
 
 // variables for operations
-let operand1;
-let operand2;
-let operator;
+let operand1 = "";
+let operand2 = "";
+let operator = "";
+let result = "";
 
 function operate(operand1, operator, operand2) {
   if (operator === "+") {
@@ -40,26 +41,17 @@ function operate(operand1, operator, operand2) {
 
 let operationDisplay = document.querySelector(".operation-display");
 let resultDisplay = document.querySelector(".result-display");
-
-// const oneBtn = document.querySelector(".btn-1");
-// const twoBtn = document.querySelector(".btn-2");
-// const threeBtn = document.querySelector(".btn-3");
-// const fourBtn = document.querySelector(".btn-4");
-// const fiveBtn = document.querySelector(".btn-5");
-// const sixBtn = document.querySelector(".btn-6");
-// const sevenBtn = document.querySelector(".btn-7");
-// const eightBtn = document.querySelector(".btn-8");
-// const nineBtn = document.querySelector(".btn-9");
-// const zeroBtn = document.querySelector(".btn-0");
 let numberButtons = document.querySelectorAll(".num-btn");
+let operatorButtons = document.querySelectorAll(".op-btn");
+let clearButton = document.querySelector(".btn-clear");
+let equalsButton = document.querySelector(".btn-equals");
+let decimalButton = document.querySelector(".btn-point");
+
+// Iterates over number buttons instead of adding EventListener one by one
 numberButtons.forEach((button) => {
   button.addEventListener("click", updateOperationDisplay);
 });
 
-// Buttons Event listeners
-// oneBtn.addEventListener("click", updateOperationDisplay);
-
-// Updates Operations Display
 function updateOperationDisplay(e) {
   if (operationDisplay.textContent.length < 13) {
     operationDisplay.textContent += e.target.textContent;
@@ -68,7 +60,23 @@ function updateOperationDisplay(e) {
   }
 }
 
+// Iterates over Operator buttons instead of adding EventListener one by one
+operatorButtons.forEach((button) => {
+  button.addEventListener("click", addOperatorToDisplay);
+});
+
+function addOperatorToDisplay(e) {
+  if (operand1 !== "" && operand2 !== "") {
+    operand1 = operate(parseFloat(operand1), operator, parseFloat(operand2));
+    operand2 = "";
+    operationDisplay.textContent = operand1;
+  }
+  operator = e.target.textContent;
+  operationDisplay.textContent += operator;
+  console.log(operand1 + " " + operator);
+}
+
 // Updates Results Display
 // function updateResultDisplay() {}
 
-// console.log(operationDisplay);
+// console.log(operand1 + ' ' + operator);
