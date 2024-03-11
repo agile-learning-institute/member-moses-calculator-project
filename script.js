@@ -119,12 +119,23 @@ clearButton.addEventListener("click", () => {
 });
 
 equalsButton.addEventListener("click", () => {
+  if (operator === "-") {
+    operator = operator;
+  } else {
+    operator = "";
+  }
+
   if (operand1 !== "" && operand2 !== "") {
     result = operate(parseFloat(operand1), operator, parseFloat(operand2));
-    resultDisplay.textContent = result;
-    operand1 = "";
-    operand2 = "";
-    operator = "";
-    operationDisplay.textContent = "";
+  } else if (operand1 === "" && operand2 !== "") {
+    result = operator + operand2;
+  } else if (operand1 !== "" && operand2 === "") {
+    result = operator + operand1;
   }
+
+  resultDisplay.textContent = result;
+  operand1 = "";
+  operand2 = "";
+  operator = "";
+  operationDisplay.textContent = "";
 });
