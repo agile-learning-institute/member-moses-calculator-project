@@ -138,6 +138,10 @@ equalsButton.addEventListener("click", () => {
     result = operator + operand1;
   }
 
+  if (result.toString().length > 13 ) {
+    result = parseFloat(result.toFixed(13));
+}
+
   resultDisplay.textContent = result;
   operand1 = "";
   operand2 = "";
