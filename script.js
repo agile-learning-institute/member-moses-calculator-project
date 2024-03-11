@@ -119,17 +119,22 @@ clearButton.addEventListener("click", () => {
 });
 
 equalsButton.addEventListener("click", () => {
-  if (operator === "-") {
-    operator = operator;
-  } else {
-    operator = "";
-  }
 
   if (operand1 !== "" && operand2 !== "") {
     result = operate(parseFloat(operand1), operator, parseFloat(operand2));
   } else if (operand1 === "" && operand2 !== "") {
+    if (operator === "-") {
+        operator = operator;
+      } else {
+        operator = "";
+      }
     result = operator + operand2;
   } else if (operand1 !== "" && operand2 === "") {
+    if (operator === "-") {
+        operator = operator;
+      } else {
+        operator = "";
+      }
     result = operator + operand1;
   }
 
