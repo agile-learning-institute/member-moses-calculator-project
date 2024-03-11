@@ -63,26 +63,26 @@ button:active {
   font-size: 30px;
 }
 
-.equals:active {
+.btn-equals:active {
   background-color: #4d8610;
 }
 
-.divide-by,
-.times,
-.minus,
-.plus,
-.percent,
-.open-bracket,
-.close-bracket {
+.btn-divide,
+.btn-multiply,
+.btn-subtract,
+.btn-add,
+.btn-percent,
+.btn-open-bracket,
+.btn-close-bracket {
   color: #68b31a;
 }
 
-.clear {
+.btn-clear {
   color: #db332a;
   font-weight: bolder;
 }
 
-.equals {
+.btn-equals {
   color: whitesmoke;
   background-color: #68b31a;
 }
