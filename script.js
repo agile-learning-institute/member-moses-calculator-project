@@ -46,6 +46,7 @@ let operatorButtons = document.querySelectorAll(".op-btn");
 let clearButton = document.querySelector(".btn-clear");
 let equalsButton = document.querySelector(".btn-equals");
 let decimalButton = document.querySelector(".btn-point");
+let deleteButton = document.querySelector(".btn-delete");
 
 // Iterates over number buttons instead of adding EventListener one by one
 numberButtons.forEach((button) => {
@@ -146,4 +147,19 @@ equalsButton.addEventListener("click", () => {
   operand2 = "";
   operator = "";
   operationDisplay.textContent = "";
+});
+
+deleteButton.addEventListener("click", () => {
+    if (operand2 !== "") {
+        operand2 = operand2.slice(0, -1);
+        operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+    } else if (operator !== "") {
+        operator = "";
+        operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+    } else if (operand1 !== "") {
+        operand1 = operand1.slice(0, -1);
+        operationDisplay.textContent = operationDisplay.textContent.slice(0, -1);
+    } else {
+        operationDisplay.textContent = "";
+    }
 });
