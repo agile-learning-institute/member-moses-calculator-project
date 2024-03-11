@@ -54,6 +54,11 @@ numberButtons.forEach((button) => {
 
 function updateOperationDisplay(e) {
   if (operationDisplay.textContent.length < 13) {
+    if (operator === "") {
+      operand1 += e.target.textContent;
+    } else {
+      operand2 += e.target.textContent;
+    }
     operationDisplay.textContent += e.target.textContent;
   } else {
     operationDisplay.textContent += "";
@@ -81,10 +86,10 @@ function addOperatorToDisplay(e) {
 // console.log(operand1 + ' ' + operator);
 
 clearButton.addEventListener("click", () => {
-    operand1 = "";
-    operand2 = "";
-    operator = "";
-    result = "";
-    operationDisplay.textContent = "";
-    resultDisplay.textContent = "";
-  });
+  operand1 = "";
+  operand2 = "";
+  operator = "";
+  result = "";
+  operationDisplay.textContent = "";
+  resultDisplay.textContent = "";
+});
